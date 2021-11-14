@@ -16,3 +16,8 @@
 * 收缩空间利用率为什么是不到25%
 #### 结论
 * 保证均摊复杂度O（1），防止连续push和pop操作，，导致连续copy数组元素
+
+## 链表、
+### 链表反转
+* [单链表翻转](https://leetcode-cn.com/problems/reverse-linked-list/)
+* [K个一组翻转链表](//leetcode-cn.com/problems/reverse-nodes-in-k-group/)
