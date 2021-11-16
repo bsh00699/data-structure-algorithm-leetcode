@@ -84,3 +84,33 @@ var reverseKGroup = function(head, k) {
   }
   return protect.next
 };
+
+
+// LeetCode-141. 环形链表
+// 说明：通过设置快慢指针，遍历链表，看他们的值是否相等，来确定链表是否是环形
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {boolean}
+ */
+var hasCycle = function(head) {
+  // 快慢指针找环问题
+  // head: 慢指针
+  // fast: 快指针
+  let curr = head
+  let fast = head
+  while (fast!== null && fast.next !== null) { // fast.next === null 链表尾节点，无环
+    // 更新curr fast 节点
+    curr = curr.next
+    fast = fast.next.next
+    if (curr === fast) return true
+  }
+  return false
+};

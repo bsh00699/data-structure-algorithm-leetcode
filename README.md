@@ -2,15 +2,14 @@
 
 ## 说明
 * 将数据结构进行分类，每一类能解决什么问题
-* 巩固数据结构的在不同业务场景的使用
-
-------
 
 ## 数组
 ### 过滤模式处理数组保序问题
 * [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
 * [删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 * [移动零](https://leetcode-cn.com/problems/move-zeroes/)
+* [加一](https://leetcode-cn.com/problems/plus-one/)
+
 ### 设计变长数组
 #### 方案
 * 初始一个空数组arr,分配常输空间，记录实际长度（size）和容量（capacity）
@@ -28,5 +27,11 @@
 ### 链表反转
 * [单链表翻转](https://leetcode-cn.com/problems/reverse-linked-list/)
 * [K个一组翻转链表](//leetcode-cn.com/problems/reverse-nodes-in-k-group/)
+
+### 链表合并
+* [合并两个有序链表](https://leetcode-cn.com/problems/merge-two-sorted-lists/)
+
+### 环形链表
+* [环形链表-1](https://leetcode-cn.com/problems/linked-list-cycle/)
 
 ------
