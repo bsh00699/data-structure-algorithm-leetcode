@@ -1,4 +1,11 @@
 # data-structure-leetcode
+
+## 说明
+* 将数据结构进行分类，每一类能解决什么问题
+* 巩固数据结构的在不同业务场景的使用
+
+------
+
 ## 数组
 ### 过滤模式处理数组保序问题
 * [合并两个有序数组](https://leetcode-cn.com/problems/merge-sorted-array/)
@@ -21,3 +28,5 @@
 ### 链表反转
 * [单链表翻转](https://leetcode-cn.com/problems/reverse-linked-list/)
 * [K个一组翻转链表](//leetcode-cn.com/problems/reverse-nodes-in-k-group/)
+
+------
