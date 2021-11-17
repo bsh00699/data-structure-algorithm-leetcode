@@ -114,3 +114,41 @@ var hasCycle = function(head) {
   }
   return false
 };
+
+// LeetCode-142. 环形链表
+// 注意: 找到相遇节点此时 此时从head --> start 和 meet --> start 相差环的整数倍
+// 只需同时移动head meet 直到他们相遇即可（都是慢指针）
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var detectCycle = function(head) {
+  // 快慢指针找环问题
+  // head: 慢指针
+  // fast: 快指针
+  let curr = head
+  let fast = head
+  while (fast!== null && fast.next !== null) {
+    // 更新curr fast 节点
+    curr = curr.next
+    fast = fast.next.next
+    if (curr === fast) {
+      // 注意：此时从head --> start 和 curr --> start 相差环的整数倍
+      // 只需同时移动head curr 直到他们相遇即可（都是慢指针）
+      while (head !== curr) {
+        head = head.next
+        curr = curr.next
+      }
+      return head
+    }
+  }
+  return null
+};
