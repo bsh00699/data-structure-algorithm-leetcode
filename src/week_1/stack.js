@@ -117,3 +117,75 @@ var evalRPN = function(tokens) {
   // 遍历完成，栈内应该只有一个值，就是我们的计算结果，否则入参出错
   return stack.length === 1 ? stack.pop() : 'entry params err'
 };
+
+// LeetCode-224. 基本计算器
+// 说明：将中缀表达式转换为后缀表达式
+/**
+ * @param {string} s
+ * @return {number}
+ */
+
+const getRank = (opt) => {
+  if (opt === '*' || opt === '/') return 2
+  if (opt === '+' || opt === '-') return 1
+  return 0
+}
+/**方法: 将其转换为逆序波兰表达式求解 */
+var calculate = function(s) {
+  s = s + ' ' // 保证末尾数字也要放入 number
+  const token = [] // 存放逆序波兰表达式
+  const opt = [] // 存放操作运算符
+  let number = '' // 保证可以计算连续的数字比如 11
+  let needsZero = true
+  for (let i = 0; i <= s.length - 1; i++) {
+    if (s[i] !== ' ' && s[i] !== '+' && s[i] !== '-' && s[i] !== '*' 
+    && s[i] !== '/' &&  s[i] !== '(' && s[i] !== ')') {
+        // 拿到数字
+        number = number + s[i]
+        // token.push(s[i])
+        needsZero = false
+        continue
+    } else {
+        if (number) {
+          token.push(number)
+          number = ''
+        }
+    }
+    if (s[i] === ' ') continue // 跳过空格
+    // 拿到运算符
+    if (s[i] === '(') {
+      opt.push(s[i])
+      needsZero = true
+      continue
+    }
+    if (s[i] === ')') {
+    //  console.log('opt----', opt)
+      // 此时就需要将括号里的内容即运算符全部push 到token中
+      // 并且去掉opt中存放的左括号 （
+      while (opt.length && opt[opt.length - 1] !== '(') {
+       token.push(opt.pop())
+      }
+      // 当前为（ ，删除它
+      opt.pop()
+      needsZero = false
+      continue
+    }
+    if ((s[i] === '+' || s[i] === '-') && needsZero) {
+      token.push('0')
+    }
+    // 判断当前运算符和opt栈顶运算符的优先级
+    const currRank = getRank(s[i])
+    // 将同等级运算符压入token
+    while (opt.length && getRank(opt[opt.length - 1]) >= currRank) {
+      const optTop = opt.pop()
+      token.push(optTop)
+    }
+    opt.push(s[i])
+    needsZero = true
+  }
+  // 最后将opt压入token
+  while (opt.length) {
+    token.push(opt.pop())
+  }
+  return evalRPN(token)
+};

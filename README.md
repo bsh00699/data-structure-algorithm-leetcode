@@ -1,7 +1,7 @@
 # data-structure-leetcode
 
 ## 说明
-* 将数据结构进行分类，每一类能解决什么问题
+* 将数据结构进行分类学习，每一类能解决什么问题
 
 ## 数组
 ### 过滤模式处理数组保序问题
@@ -40,6 +40,8 @@
 * [有效的括号](https://leetcode-cn.com/problems/valid-parentheses/)
 * [最小栈](https://leetcode-cn.com/problems/min-stack/)
 * [逆波兰表达式求值](https://leetcode-cn.com/problems/evaluate-reverse-polish-notation/)
+* [ 基本计算器（hard）](https://leetcode-cn.com/problems/basic-calculator/)
 
-
+## 单调栈与单调队列
+* 算法优化
 ------
