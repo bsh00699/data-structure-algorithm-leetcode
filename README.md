@@ -43,5 +43,8 @@
 * [ 基本计算器（hard）](https://leetcode-cn.com/problems/basic-calculator/)
 
 ## 单调栈与单调队列
-* 算法优化
+* 利用单调栈与单调队列主要是用来做一些算法优化，降低复杂度
+### 单调栈
+* [柱状图中最大的矩形（hard）](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+
 ------

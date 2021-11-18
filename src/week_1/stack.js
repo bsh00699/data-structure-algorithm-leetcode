@@ -189,3 +189,32 @@ var calculate = function(s) {
   }
   return evalRPN(token)
 };
+
+//////////////////////////单调栈\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+// LeetCode-84. 柱状图中最大的矩形
+// 注意：尾部push(0)的弹栈技巧
+/**
+ * @param {number[]} heights
+ * @return {number}
+ */
+var largestRectangleArea = function(heights) {
+  heights.push(0) // 确保stack中单调递增的柱子被弹空
+  let stack = [] // 存放key为 width height的对象
+  let areaMax = 0
+  for (let i = 0; i <= heights.length - 1; i++) {
+    let elasticWidth = 0
+    const height = heights[i]
+    // 当下一个柱子的高度不满足单调性，删除栈顶项，更新最大面积
+    while (stack.length && stack[stack.length - 1].height >= height) {
+      // 因为elasticWidth初始是 0
+      elasticWidth += stack[stack.length - 1].width
+      areaMax = Math.max(areaMax, stack[stack.length - 1].height * elasticWidth)
+      stack.pop()
+    }
+    stack.push({
+      width: elasticWidth + 1,
+      height,
+    })
+  }
+  return areaMax
+};
