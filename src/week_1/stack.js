@@ -218,3 +218,60 @@ var largestRectangleArea = function(heights) {
   }
   return areaMax
 };
+
+// LeetCode-42. 接雨水
+/**
+ * @param {number[]} heights
+ * @return {number}
+ */
+var trap = function(heights) {
+  // 方案① 横条水累加--单调栈
+  // 维护一个单调递减栈，当遇到高度 > 栈顶元素的高度,开始积水
+  let res = 0
+  const stack = []
+  for (const height of heights) {
+    let accumulatedWidth = 0
+    while (stack.length && stack[stack.length - 1].height < height) {
+      let currObj = stack.pop() //出栈一个
+      let bottom =  currObj.height
+      accumulatedWidth += currObj.width
+      // console.log('stack', stack)
+      if (!stack.length) continue  // 栈空，表示左边的水流走，无法积水
+      let prevObj = stack[stack.length - 1]
+      let heightMin = Math.min(height, prevObj.height)
+      res += accumulatedWidth * (heightMin - bottom)
+    }
+    stack.push({
+      width: accumulatedWidth + 1,
+      height
+    })
+  }
+  return res
+
+  // 方案② 竖条水累加--维护前后缀max
+  // const len = heights.length
+  // let res = 0
+  // const preMax = [] // 每个水坑左边柱子的高度
+  // const sufMax = [] // 每个水坑右边柱子的高度
+  // // 将所有水坑左右柱子的高度找到
+  // // 不需要最后一个柱子，因为以它为底的水坑无法存水
+  // preMax[0] = heights[0]
+  // for (let i = 1; i < len; i++) {
+  //   preMax[i] = Math.max(preMax[i - 1], heights[i])
+  // }
+  // console.log('preMax', preMax)
+  // sufMax[len - 1] = heights[len - 1]
+  // for (let j = len - 2; j >= 0; j--) {
+  //   sufMax[j] =  Math.max(sufMax[j + 1], heights[j])
+  // }
+  //  console.log('sufMax', sufMax)
+  // // 第一个柱子和最后一个柱子不需要，因为以它为底无法存水
+  // for (let n = 1; n < len - 1; n++) {
+  //   const bottom = heights[n]
+  //   const upMin = Math.min(preMax[n - 1], sufMax[n + 1])
+  //   if (upMin > bottom) {
+  //     res += (upMin - bottom) * 1
+  //   }
+  // }
+  // return res
+};
