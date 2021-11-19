@@ -1,7 +1,12 @@
 # data-structure-leetcode
 
 ## 说明
-* 将数据结构进行分类学习，每一类能解决什么问题
+* 这里只是将数据结构进行分类，针对每一类去解决一些算法题，做到举一反三
+* 算法入门与进阶借鉴[极客时间](https://time.geekbang.org/)下
+  * 王争老师的[数据结构与算法之类](https://time.geekbang.org/column/intro/100017301?tab=catalog)
+  * 李煜东老师的算法训练营
+  * 覃超老师的[算法通关](https://time.geekbang.org/search?q=%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E9%80%9A%E5%85%B340%E8%AE%B2)
+* 关于数据结构的基础知识请移步到我的语雀文档[数据结构与算法分析](https://www.yuque.com/dianshijuhaoka/wl585k)
 
 ## 数组
 ### 过滤模式处理数组保序问题
