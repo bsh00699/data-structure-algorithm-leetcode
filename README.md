@@ -51,5 +51,6 @@
 * 利用单调栈与单调队列主要是用来做一些算法优化，降低复杂度
 ### 单调栈
 * [柱状图中最大的矩形（hard）](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+* [最大矩形（hard）](https://leetcode-cn.com/problems/maximal-rectangle/)
 * [接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
 
