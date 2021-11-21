@@ -53,4 +53,6 @@
 * [柱状图中最大的矩形（hard）](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
 * [最大矩形（hard）](https://leetcode-cn.com/problems/maximal-rectangle/)
 * [接雨水](https://leetcode-cn.com/problems/trapping-rain-water/)
+### 单调队列
+* [滑动窗口最大值](https://leetcode-cn.com/problems/sliding-window-maximum/)
 
