@@ -63,6 +63,7 @@
 * [字母异位词分组](https://leetcode-cn.com/problems/group-anagrams/)
 * [模拟行走机器人](https://leetcode-cn.com/problems/walking-robot-simulation/)
 * [串联所有单词的子串（hard）](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)
+* [子域名访问计数](https://leetcode-cn.com/problems/subdomain-visit-count/)
 
 #### LRU
 * [LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)
