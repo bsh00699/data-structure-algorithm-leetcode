@@ -64,3 +64,6 @@
 * [模拟行走机器人](https://leetcode-cn.com/problems/walking-robot-simulation/)
 * [串联所有单词的子串（hard）](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)
 
+#### LRU
+* [LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)
+
