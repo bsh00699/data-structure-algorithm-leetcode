@@ -68,3 +68,8 @@
 #### LRU
 * [LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)
 
+#### 前缀和
+* [统计「优美子数组」](https://leetcode-cn.com/problems/count-number-of-nice-subarrays/)
+* [最大子序和](https://leetcode-cn.com/problems/maximum-subarray/)
+* [和为 K 的子数组](https://leetcode-cn.com/problems/subarray-sum-equals-k/)
+
