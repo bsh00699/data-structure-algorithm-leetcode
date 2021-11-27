@@ -24,3 +24,33 @@ var twoSum = function (numbers, target) {
   }
   return []
 };
+
+/**
+ * LeetCode-11. 盛最多水的容器
+ */
+/**
+ * @param {number[]} height
+ * @return {number}
+ */
+var maxArea = function (height) {
+  // 双指针
+  const len = height.length
+  if (!len) return
+  let i = 0
+  let j = len - 1
+  let ans = 0
+  while (i < j) {
+    ans = Math.max(
+      ans,
+      Math.min(height[i], height[j]) * (j - i)
+    )
+    // i j 往中间靠
+    height[i] < height[j] ? i++ : j--
+    // if (height[i] < height[j]) {
+    //   i++
+    // } else {
+    //   j--
+    // }
+  }
+  return ans
+};
