@@ -64,6 +64,7 @@
 * [模拟行走机器人](https://leetcode-cn.com/problems/walking-robot-simulation/)
 * [串联所有单词的子串（hard）](https://leetcode-cn.com/problems/substring-with-concatenation-of-all-words/)
 * [子域名访问计数](https://leetcode-cn.com/problems/subdomain-visit-count/)
+* [数组的度](https://leetcode-cn.com/problems/degree-of-an-array/)
 
 #### LRU
 * [LRU 缓存机制](https://leetcode-cn.com/problems/lru-cache/)
@@ -76,3 +77,4 @@
 #### 双指针扫描
 * [两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
 * [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
+* [数组的度](https://leetcode-cn.com/problems/degree-of-an-array/)

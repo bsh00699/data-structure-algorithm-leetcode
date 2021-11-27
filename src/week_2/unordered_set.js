@@ -110,7 +110,7 @@ var robotSim = function (commands, obstacles) {
  * @param {string[]} words
  * @return {number[]}
  */
-var findSubstring = function(s, words) {
+var findSubstring = function (s, words) {
   // 记录words的总长度
   let tot = 0
   const wordsMap = {}
@@ -118,13 +118,13 @@ var findSubstring = function(s, words) {
     tot += word.length
     if (!wordsMap[word]) {
       wordsMap[word] = 0
-    } 
+    }
     wordsMap[word]++
   }
   let res = []
   // 以 tot 长度分组 i + tot <= s.length
   for (let i = 0; i + tot <= s.length; i++) {
-    if ( vaild(s.substr(i, tot), words, wordsMap) ) {
+    if (vaild(s.substr(i, tot), words, wordsMap)) {
       res.push(i)
     }
   }
@@ -136,7 +136,7 @@ const equalsMap = (mapA, mapB) => {
     return false
   }
   for (const key in mapA) {
-    if (!mapB[key] ||  mapB[key] !== mapA[key]) {
+    if (!mapB[key] || mapB[key] !== mapA[key]) {
       return false
     }
   }
@@ -149,10 +149,47 @@ const vaild = (str, words, m) => {
   const k = words[0].length
   const splitMap = {}
   for (let i = 0; i <= str.length - 1; i += k) {
-    if(!splitMap[str.substr(i, k)]) {
+    if (!splitMap[str.substr(i, k)]) {
       splitMap[str.substr(i, k)] = 0
     }
     splitMap[str.substr(i, k)]++
   }
   return equalsMap(splitMap, m)
 }
+
+/**
+ * LeetCode-697. 数组的度
+ * 方法：①hasgMap存你想要的信息，然后挑选想要的值 ②双指针
+ */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var findShortestSubArray = function (nums) {
+  // map 存一下每个元素的度，以及出现的位置(前后位置)
+  const m = {}
+  for (let i = 0; i <= nums.length - 1; i++) {
+    if (!m[nums[i]]) {
+      m[nums[i]] = [1, i, i]
+    } else {
+      // 再次出现，更新尾部位置的index 和 度
+      m[nums[i]][0] = m[nums[i]][0] + 1
+      m[nums[i]][2] = i
+    }
+  }
+  // 找度和前后最小位置呗
+  let maxCnt = 0
+  let minLen = 0
+  for (let key in m) {
+    const [currCnt, left, right] = m[key]
+    if (currCnt > maxCnt) {
+      // 更新 maxCnt minLen
+      maxCnt = currCnt
+      minLen = right - left + 1
+    } else if (currCnt === maxCnt) {
+      // 看谁的最短
+      minLen = Math.min(minLen, right - left + 1)
+    }
+  }
+  return minLen
+};
