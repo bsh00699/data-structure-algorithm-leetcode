@@ -78,3 +78,9 @@
 * [两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
 * [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
 * [数组的度](https://leetcode-cn.com/problems/degree-of-an-array/)
+
+## week_3
+### 递归、分治、树、图
+#### 递归
+* [子集](https://leetcode-cn.com/problems/subsets/)
+* [组合](https://leetcode-cn.com/problems/combinations/)
