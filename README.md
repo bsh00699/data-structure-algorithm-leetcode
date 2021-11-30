@@ -84,3 +84,8 @@
 #### 递归
 * [子集](https://leetcode-cn.com/problems/subsets/)
 * [组合](https://leetcode-cn.com/problems/combinations/)
+
+#### 树
+* [翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
+* [验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
+* [二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)

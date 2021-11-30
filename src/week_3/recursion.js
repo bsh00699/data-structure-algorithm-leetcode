@@ -5,7 +5,7 @@
  * @param {number[]} nums
  * @return {number[][]}
  */
-var subsets = function(nums) {
+var subsets = function (nums) {
   // 递归 + 回溯
   const len = nums.length
   const chosen = []
@@ -35,7 +35,7 @@ var subsets = function(nums) {
  * @param {number} k
  * @return {number[][]}
  */
-var combine = function(n, k) {
+var combine = function (n, k) {
   // 递归 + 回溯
   const len = n
   const chosen = []
@@ -45,7 +45,7 @@ var combine = function(n, k) {
     if (chosen.length > k || chosen.length + (n - i + 1) < k) return
     // 边界
     if (len + 1 === i) {
-    // if (chosen.length === k)  ans.push([...chosen])
+      // if (chosen.length === k)  ans.push([...chosen])
       ans.push([...chosen])
       return
     }
@@ -59,3 +59,5 @@ var combine = function(n, k) {
   recur(1)
   return ans
 };
+
+
