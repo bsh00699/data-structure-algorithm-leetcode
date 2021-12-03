@@ -89,9 +89,13 @@
 * [求Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
 * [括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
 
-#### 树
+#### 树的遍历
 * [翻转二叉树](https://leetcode-cn.com/problems/invert-binary-tree/)
 * [验证二叉搜索树](https://leetcode-cn.com/problems/validate-binary-search-tree/)
 * [二叉树的最大深度](https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/)
 * [二叉树的中序遍历](https://leetcode-cn.com/problems/binary-tree-inorder-traversal/)
 * [N 叉树的前序遍历](https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/)
+
+#### 树的序列化
+* [ 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+* [从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)

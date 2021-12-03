@@ -132,3 +132,85 @@ var preorder = function (root) {
   }
   return ans
 };
+
+/**
+ * LeetCode-105. 从前序与中序遍历序列构造二叉树
+ */
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+// 1.抛开js indexOf 之类的函数
+var buildTree = function (preorder, inorder) {
+  // 先序遍历: 根 --> 左 --> 右
+  // 中序遍历: 左 --> 根 --> 右
+  // preorder[l1...r1] inorder[l2...r2] 的两段还原二叉树
+  const build = (l1, r1, l2, r2) => {
+    // 边界
+    if (l1 > r1) return null
+    // 在preorder中找根
+    const root = new TreeNode(preorder[l1])
+    // 在inorder中根据root, 找左右子树
+    // 首先有了root在inorder中找root的位置
+    let mid = l2
+    while (inorder[mid] !== root.val) mid++
+    // 左子树递归
+    // 左子树的范围 [l1 + 1 ... mid - l2] 
+    root.left = build(l1 + 1, l1 + (mid - l2), l2, mid - 1)
+    // 右子树范围 [l1 + (mid - l2) + 1 ... r1] [mid+1...r2]
+    root.right = build(l1 + (mid - l2) + 1, r1, mid + 1, r2)
+    return root
+  }
+  return build(0, preorder.length - 1, 0, inorder.length - 1)
+};
+
+// 2.使用js indexOf 之类的函数
+var buildTree = function (preorder, inorder) {
+  // 先序遍历: 根 --> 左 --> 右
+  // 中序遍历: 左 --> 根 --> 右
+  // 边界
+  if (!preorder.length || !inorder.length) return null
+  const root = new TreeNode(preorder[0])
+  const index = inorder.indexOf(preorder.shift())
+  root.left = buildTree(preorder, inorder.slice(0, index)) // [0...index]
+  root.right = buildTree(preorder, inorder.slice(index + 1)) // [index+1.. end]
+  return root
+};
+
+/**
+ * LeetCode-106. 从中序与后序遍历序列构造二叉树
+ */
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val, left, right) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.left = (left===undefined ? null : left)
+ *     this.right = (right===undefined ? null : right)
+ * }
+ */
+/**
+ * @param {number[]} inorder
+ * @param {number[]} postorder
+ * @return {TreeNode}
+ */
+var buildTree = function (inorder, postorder) {
+  // 中序遍历 左 --> 根 --> 右
+  // 后序遍历 左 --> 右 --> 根
+  if (!inorder.length || !postorder.length) return null
+  const root = new TreeNode(postorder[postorder.length - 1])
+  const index = inorder.indexOf(postorder.pop())
+  // slice 返回一个新的数组，包含从 start 到 end （不包括该元素）
+  // 注意先遍历右子树，再遍历左子树
+  root.right = buildTree(inorder.slice(index + 1), postorder)
+  root.left = buildTree(inorder.slice(0, index), postorder)
+  return root
+};
