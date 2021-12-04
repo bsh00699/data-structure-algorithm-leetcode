@@ -214,3 +214,62 @@ var buildTree = function (inorder, postorder) {
   root.left = buildTree(inorder.slice(0, index), postorder)
   return root
 };
+
+/**
+ * LeetCode-297. 二叉树的序列化与反序列化
+ * 注意：一定要思考如何确定一棵树形态的方法，并且反序列化要尽量简单
+ */
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+
+/**
+ * Encodes a tree to a single string.
+ *
+ * @param {TreeNode} root
+ * @return {string}
+ */
+var serialize = function (root) {
+  const seqArr = []
+  dfs(seqArr, root)
+  return seqArr.join(',')
+};
+const dfs = (que = [], root) => {
+  // 通过dfs看当前节点下一层是否存在左右节点，来确定tre形态
+  // 比如题目先序：1 2 null null 3 4 null null 5 null null
+  // 当然也可以通过中序存null的形式确定tre形态
+  if (root === null) {
+    que.push('null')
+    return
+  }
+  que.push(root.val)
+  dfs(que, root.left)
+  dfs(que, root.right)
+}
+
+/**
+ * Decodes your encoded data to tree.
+ *
+ * @param {string} data
+ * @return {TreeNode}
+ */
+var deserialize = function (data) {
+  let curr = 0
+  const deseqArr = data.split(',')
+  const restore = () => {
+    if (deseqArr[curr] === 'null') {
+      curr++
+      return null
+    }
+    const root = new TreeNode(deseqArr[curr])
+    curr++
+    root.left = restore()
+    root.right = restore()
+    return root
+  }
+  return restore()
+};
