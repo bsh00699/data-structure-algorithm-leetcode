@@ -60,6 +60,85 @@ var combine = function (n, k) {
   return ans
 };
 
+/**
+ * LeetCode-46. 全排列
+ */
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permute = function (nums) {
+  // n! 思想: 一共有n个位置，考虑每个位置放什么数
+  // 从还  没有选过的数 里面选一个 
+  const len = nums.length
+  const ans = []
+  const arr = [] // 排列数
+  const used = [] // 每个位置的数是否被选择
+  const recur = (nums, pos) => {
+    // 边界
+    if (pos === len) {
+      ans.push([...arr])
+      return
+    }
+    for (let i = 0; i <= len - 1; i++) {
+      if (!used[i]) {
+        // 没选
+        arr.push(nums[i])
+        used[i] = true
+        // 下一个数
+        recur(nums, pos + 1)
+        // 还原现场
+        used[i] = false
+        arr.pop()
+      }
+    }
+  }
+  recur(nums, 0)
+  return ans
+};
+
+/**
+ * LeetCode-47. 全排列 II
+ */
+
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+var permuteUnique = function (nums) {
+  // 与 46解题思想一致 n! 思想: 一共有n个位置，考虑每个位置放什么数，从还  没有选过的数 里面选一个 
+  // 只不过这里需要 map 记录已经排序，并且元素顺序一致的数组
+  const len = nums.length
+  const ans = []
+  const arr = [] // 排列数
+  const map = {} // 记录已经排序，并且元素顺序一致的数组
+  const used = [] // 每个位置的数是否被选择
+  const recur = (nums, pos) => {
+    // 边界
+    if (pos === len) {
+      const key = arr.join('')
+      if (!map[key]) {
+        ans.push([...arr])
+        map[key] = true
+      }
+      return
+    }
+    for (let i = 0; i <= len - 1; i++) {
+      if (!used[i]) {
+        // 没选
+        arr.push(nums[i])
+        used[i] = true
+        // 下一个数
+        recur(nums, pos + 1)
+        // 还原现场
+        used[i] = false
+        arr.pop()
+      }
+    }
+  }
+  recur(nums, 0)
+  return ans
+};
 
 /**
  * LeetCode-50. Pow(x, n)
