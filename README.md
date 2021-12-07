@@ -102,3 +102,9 @@
 * [ 从前序与中序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
 * [从中序与后序遍历序列构造二叉树](https://leetcode-cn.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/)
 * [二叉树的序列化与反序列化](https://leetcode-cn.com/problems/serialize-and-deserialize-binary-tree/)
+
+## week_4
+### 深度优先搜索、广度优先搜索、二叉堆、二叉搜索树
+#### DFS(深度优先搜索)
+* [电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
+* [51. N 皇后](https://leetcode-cn.com/problems/n-queens/)
