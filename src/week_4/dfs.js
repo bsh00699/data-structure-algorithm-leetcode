@@ -86,3 +86,42 @@ var solveNQueens = function (n) {
   }
   return ans
 };
+
+/**
+ * LeetCode-200. 岛屿数量
+ * 方法：1.dfs 2.bfs 
+ */
+/**
+ * @param {character[][]} grid
+ * @return {number}
+ */
+var numIslands = function (grid) {
+  const m = grid.length
+  if (!m) return 0
+  const n = grid[0].length
+  let ans = 0
+  // dfs 实现
+  const dfs = (i, j) => {
+    // 临界条件 越界 || 遇水
+    if (i < 0 || i >= m || j < 0 || j >= n || grid[i][j] === '0') return;
+    // if (grid[i][j] === '0' || i < 0 || i >= m || j < 0 || j >= n) return
+    // 访问过的地方变为 '0'
+    grid[i][j] = '0'
+    // 向四个方向继续查找确认
+    dfs(i + 1, j) // 右
+    dfs(i - 1, j) // 左
+    dfs(i, j + 1) // 上
+    dfs(i, j - 1) // 下
+  }
+  // 遍历矩阵
+  for (let i = 0; i <= m - 1; i++) {
+    for (let j = 0; j <= n - 1; j++) {
+      //深搜找陆地 即 grid[i][j] === '1'
+      if (grid[i][j] === '1') {
+        dfs(i, j)
+        ans++
+      }
+    }
+  }
+  return ans
+};

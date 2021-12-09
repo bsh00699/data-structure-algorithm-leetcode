@@ -107,4 +107,5 @@
 ### 深度优先搜索、广度优先搜索、二叉堆、二叉搜索树
 #### DFS(深度优先搜索)
 * [电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
-* [51. N 皇后](https://leetcode-cn.com/problems/n-queens/)
+* [N 皇后](https://leetcode-cn.com/problems/n-queens/)
+* [岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
