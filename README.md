@@ -109,3 +109,7 @@
 * [电话号码的字母组合](https://leetcode-cn.com/problems/letter-combinations-of-a-phone-number/)
 * [N 皇后](https://leetcode-cn.com/problems/n-queens/)
 * [岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
+
+#### BFS(广度优先搜索)
+* [最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/)
+* [岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)

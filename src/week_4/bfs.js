@@ -50,3 +50,49 @@ var numIslands = function (grid) {
   }
   return ans
 };
+
+/**
+ * LeetCode-433. 最小基因变化
+ * 方法：bfs 
+ */
+/**
+ * @param {string} start
+ * @param {string} end
+ * @param {string[]} bank
+ * @return {number}
+ */
+var minMutation = function (start, end, bank) {
+  // BFS: 实质求最短路径
+  const depth = {}
+  const bankInter = new Set(bank)
+  const que = []
+  // 不在基因库
+  if (!bankInter.has(end)) return -1
+  const GENE = ['A', 'C', 'G', 'T']
+  depth[start] = 0
+  que.push(start)
+  // BFS代码模板
+  while (que.length) {
+    const curr = que.shift()
+    for (let i = 0; i <= curr.length - 1; i++) {
+      // 枚举基因变化的所有情况
+      for (let j = 0; j <= GENE.length - 1; j++) {
+        if (curr[i] !== GENE[j]) { // 变成其他3中基因
+          const temp = curr.split('') // 需要转成数组，在此基础上改变基因
+          temp[i] = GENE[j]
+          const changeAfter = temp.join('')
+          if (!bankInter.has(changeAfter)) continue // 不在基因库
+          // 计数，每串基因，只需访问一次（即 bfs 中的最短路径问题）
+          if (depth[changeAfter]) continue
+          // 下一层 = 上一层的深度 + 1
+          depth[changeAfter] = depth[curr] + 1
+          que.push(changeAfter)
+          if (changeAfter === end) {
+            return depth[changeAfter]
+          }
+        }
+      }
+    }
+  }
+  return -1
+};
