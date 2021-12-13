@@ -120,3 +120,4 @@
 #### 二叉搜索树
 * [二叉搜索树中的插入操作](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
 * [后继者](https://leetcode-cn.com/problems/successor-lcci/)
+* [删除二叉搜索树中的节点](https://leetcode-cn.com/problems/delete-node-in-a-bst/)
