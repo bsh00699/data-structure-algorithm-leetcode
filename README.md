@@ -116,3 +116,7 @@
 
 #### 二叉堆
 * [合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
+
+#### 二叉搜索树
+* [二叉搜索树中的插入操作](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
+* [后继者](https://leetcode-cn.com/problems/successor-lcci/)
