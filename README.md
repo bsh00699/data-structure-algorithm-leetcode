@@ -121,3 +121,10 @@
 * [二叉搜索树中的插入操作](https://leetcode-cn.com/problems/insert-into-a-binary-search-tree/)
 * [后继者](https://leetcode-cn.com/problems/successor-lcci/)
 * [删除二叉搜索树中的节点](https://leetcode-cn.com/problems/delete-node-in-a-bst/)
+
+## week_5
+### 二分、排序
+#### 二分
+* [二分查找](https://leetcode-cn.com/problems/binary-search/)
+* [在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
+* [寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
