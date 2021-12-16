@@ -127,4 +127,6 @@
 #### 二分
 * [二分查找](https://leetcode-cn.com/problems/binary-search/)
 * [在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
-* [寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array/)
+* [Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
+* [猜数字大小](https://leetcode-cn.com/problems/guess-number-higher-or-lower/)
+* [寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
