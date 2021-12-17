@@ -124,9 +124,16 @@
 
 ## week_5
 ### 二分、排序
-#### 二分
+#### 二分查找
 * [二分查找](https://leetcode-cn.com/problems/binary-search/)
 * [在排序数组中查找元素的第一个和最后一个位置](https://leetcode-cn.com/problems/find-first-and-last-position-of-element-in-sorted-array/)
 * [Sqrt(x)](https://leetcode-cn.com/problems/sqrtx/)
-* [猜数字大小](https://leetcode-cn.com/problems/guess-number-higher-or-lower/)
+
+#### 三分查找
 * [寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
+
+#### 二分答案
+* [猜数字大小](https://leetcode-cn.com/problems/guess-number-higher-or-lower/)
+* [分割数组的最大值](https://leetcode-cn.com/problems/split-array-largest-sum/)
+* [制作m束花所需的最少天数](https://leetcode-cn.com/problems/minimum-number-of-days-to-make-m-bouquets/)
+* [在D天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/)

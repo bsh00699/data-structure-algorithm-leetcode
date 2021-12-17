@@ -203,3 +203,104 @@ var findPeakElement = function (nums) {
   }
   return right
 };
+
+/**
+ * LeetCode-410. 分割数组的最大值
+ */
+/**
+ * @param {number[]} nums
+ * @param {number} m
+ * @return {number}
+ */
+// m: m个盒子 size: 每个盒子的size
+const isValid = (nums, m, size) => {
+  let capacity = 0 // 盒子的容量
+  let cnt = 1 // 计数需要多少个盒子
+  for (const val of nums) {
+    // console.log('val--', val)
+    if (capacity + val <= size) {
+      // 往盒子里塞
+      capacity += val
+    } else {
+      // 塞不下了,重新拿个盒子塞进去
+      cnt++
+      capacity = val
+    }
+  }
+  return cnt <= m
+}
+var splitArray = function (nums, m) {
+  // 转为二分求解
+  // 一堆数用 m（m值：二分猜测）个盒子去装，看需要多少个盒子
+  // 然后从这堆满足条件的盒子中挑出最合适的
+  let left = 0
+  let right = 0
+  // 1.确定边界盒子的最大值与最小值
+  for (const val of nums) {
+    left = Math.max(left, val)
+    right += val
+  }
+  while (left < right) {
+    // let mid = (left + right) / 2
+    let mid = Math.floor((left + right) / 2)
+    if (isValid(nums, m, mid)) {
+      // 取最小值，左区间，更新right
+      right = mid
+    } else {
+      left = mid + 1
+    }
+  }
+  return right
+};
+
+/**
+ * LeetCode-制作 m 束花所需的最少天数
+ */
+/**
+ * @param {number[]} bloomDay
+ * @param {number} m
+ * @param {number} k
+ * @return {number}
+ */
+const validDateOnDay = (bloomDay, m, k, now) => {
+  let cnt = 0 // 当前已做花束数量
+  let continuousCnt = 0 // 当前连续的花束数量
+  for (const bloom of bloomDay) {
+    if (bloom <= now) {
+      continuousCnt++
+      if (continuousCnt === k) {
+        cnt++
+        // 重置连续花束数量0
+        continuousCnt = 0
+      }
+    } else {
+      // 没有花开continuousCnt = 0，因为制作花束时。要相邻的花
+      continuousCnt = 0
+    }
+  }
+  return cnt >= m
+}
+var minDays = function (bloomDay, m, k) {
+  // 与410. 分割数组的最大值，结题思路一样
+  let left = 0
+  let right = 0
+  let latestTime = 0 // 最晚时间
+  // 确定临界值
+  for (const bloom of bloomDay) {
+    latestTime += bloom
+  }
+  right = latestTime + 1
+  while (left < right) {
+    let mid = Math.floor((left + right) / 2)
+    if (validDateOnDay(bloomDay, m, k, mid)) {
+      // 满足条件的最小值比如, 0 0 0 1 1 1 1即刚出现1的值
+      right = mid
+    } else {
+      left = mid + 1
+    }
+  }
+  // 如果找不到，比如全是false,即花全部盛开也无法满足制作m束花要求
+  if (right === latestTime + 1) return -1
+  return right
+};
+
