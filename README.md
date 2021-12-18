@@ -137,3 +137,5 @@
 * [分割数组的最大值](https://leetcode-cn.com/problems/split-array-largest-sum/)
 * [制作m束花所需的最少天数](https://leetcode-cn.com/problems/minimum-number-of-days-to-make-m-bouquets/)
 * [在D天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/)
+* [在线选举](https://leetcode-cn.com/problems/online-election/)
+* [爱吃香蕉的珂珂](https://leetcode-cn.com/problems/koko-eating-bananas/)
