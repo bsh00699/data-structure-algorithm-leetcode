@@ -5,7 +5,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-// 冒泡排序
+// 1.冒泡排序
 var sortArray = function (nums) {
   const len = nums.length
   for (let i = 0; i < len; i++) {
@@ -22,10 +22,10 @@ var sortArray = function (nums) {
   }
   return nums
 };
-// 快排
+// 2.快排
 const partition = (arr, l, r) => {
-  let  pivot  =  l  +  Math.floor(Math.random()  *  (r  -  l  +  1));
-  let  pivotVal  = arr[pivot];
+  let pivot = l + Math.floor(Math.random() * (r - l + 1));
+  let pivotVal = arr[pivot];
   while (l <= r) {
     while (arr[l] < pivotVal) l++
     while (arr[r] > pivotVal) r--
@@ -67,4 +67,40 @@ var sortArray = function (nums) {
   quickSort(nums, 0, nums.length - 1)
   return nums
 };
+
+// 3.归并排序
+var sortArray = function (nums) {
+  return mergeSort(nums)
+};
+
+const mergeSort = (arr = []) => {
+  const len = arr.length
+  if (len === 1) { //临界值
+    return arr
+  }
+  let mid = Math.floor(len / 2)
+  const left = arr.slice(0, mid)
+  const right = arr.slice(mid, len)
+  return merge(mergeSort(left), mergeSort(right))
+}
+
+const merge = (left, right) => {
+  let i = 0
+  let j = 0
+  const ans = []
+  while (i < left.length && j < right.length) {
+    if (left[i] > right[j]) {
+      ans.push(right[j++])
+    } else {
+      ans.push(left[i++])
+    }
+  }
+  while (i < left.length) {
+    ans.push(left[i++])
+  }
+  while (j < right.length) {
+    ans.push(right[j++])
+  }
+  return ans
+}
 
