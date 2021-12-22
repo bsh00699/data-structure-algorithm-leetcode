@@ -145,3 +145,4 @@
 * [合并区间](https://leetcode-cn.com/problems/merge-intervals/)
 * [数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
 * [数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)
+* [翻转对](https://leetcode-cn.com/problems/reverse-pairs/)
