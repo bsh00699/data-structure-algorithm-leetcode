@@ -104,3 +104,63 @@ var relativeSortArray = function (arr1, arr2) {
   }
   return ans
 };
+
+/**
+ * LeetCode-493. 翻转对
+ */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+let ans = 0
+var reversePairs = function (nums) {
+  ans = 0
+  mergeSort(nums)
+  return ans
+};
+
+const mergeSort = (arr = [], ans) => {
+  const len = arr.length
+  // 临界值
+  if (len === 1) return arr
+  let mid = Math.floor(len / 2)
+  const left = arr.slice(0, mid)
+  const right = arr.slice(mid, len)
+  const leftArr = mergeSort(left)
+  const rightArr = mergeSort(right)
+  // 1. leftArr 和 rightArr中的元素已经满足 i < j 的条件
+  // 2. 只需要处理nums[i] > 2*nums[j]这个不等式就好了
+  calculate(leftArr, rightArr)
+  return merge(leftArr, rightArr)
+}
+const calculate = (left, right) => {
+  let i = 0
+  let j = 0
+  while (i < left.length) {
+    while (left[i] > 2 * right[j]) {
+      j++
+    }
+    ans = ans + j - 0
+    i++
+  }
+}
+
+const merge = (left, right) => {
+  let i = 0
+  let j = 0
+  const ans = []
+  while (i < left.length && j < right.length) {
+    if (left[i] > right[j]) {
+      ans.push(right[j++])
+    } else {
+      ans.push(left[i++])
+    }
+  }
+  while (i < left.length) {
+    ans.push(left[i++])
+  }
+  while (j < right.length) {
+    ans.push(right[j++])
+  }
+  return ans
+}
