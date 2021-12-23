@@ -146,3 +146,10 @@
 * [数组中的第K个最大元素](https://leetcode-cn.com/problems/kth-largest-element-in-an-array/)
 * [数组的相对排序](https://leetcode-cn.com/problems/relative-sort-array/)
 * [翻转对](https://leetcode-cn.com/problems/reverse-pairs/)
+
+## week_6
+### 贪心、动态规划
+#### 贪心
+* [爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/description/)
+* [零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+* [柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/description/)
