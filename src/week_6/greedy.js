@@ -80,5 +80,29 @@ var lemonadeChange = function (bills) {
     if (!exchange(val - 5)) return false
   }
   return true
-  console.log('map--', map)
+};
+
+/**
+ * LeetCode-45. 跳跃游戏 II
+ */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var jump = function (nums) {
+  let ans = 0
+  let start = 0
+  let end = 1
+  let len = nums.length
+  while (end < len) {
+    let maxPos = 0 // 能跳到的最远位置
+    for (let i = start; i < end; i++) {
+      // 从start开始跳，看能跳到多远
+      maxPos = Math.max(maxPos, i + nums[i])
+    }
+    start = end // 更新下次起跳的位置
+    end = maxPos + 1
+    ans++
+  }
+  return ans
 };
