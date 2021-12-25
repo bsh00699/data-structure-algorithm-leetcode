@@ -151,7 +151,8 @@
 ### 贪心、动态规划
 #### 贪心
 * [爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/description/)
-* [零钱兑换](https://leetcode-cn.com/problems/coin-change/)
 * [柠檬水找零](https://leetcode-cn.com/problems/lemonade-change/description/)
 * [跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii/)
+#### 动态规划
+* [零钱兑换](https://leetcode-cn.com/problems/coin-change/)
 
