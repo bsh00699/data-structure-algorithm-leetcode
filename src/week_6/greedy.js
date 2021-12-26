@@ -79,3 +79,50 @@ var jump = function (nums) {
   }
   return ans
 };
+
+/**
+ * LeetCode-455. 分发饼干
+ */
+/**
+ * @param {number[]} g
+ * @param {number[]} s
+ * @return {number}
+ */
+var findContentChildren = function (g, s) {
+  // 将饼干大小和孩子胃口排好序，然后从小到大依次匹配就好
+  let ans = 0
+  let j = 0
+  g.sort((a, b) => a - b)
+  s.sort((a, b) => a - b)
+  for (const child of g) {
+    // 当前饼干不能满足孩子的胃口，那就跳过这个饼干
+    while (j < s.length && s[j] < child) j++
+    // 找到合适的饼干
+    if (j < s.length) {
+      j++
+      ans++
+    }
+  }
+  return ans
+};
+
+/**
+ * LeetCode-122. 买卖股票的最佳时机 II
+ */
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function (prices) {
+  // 贪心
+  // 三个决策: 买 || 卖 || 持仓
+  // 向后看一天如果跌就卖（保证收益大于0）
+  let ans = 0
+  for (let i = 1; i < prices.length; i++) {
+    // if (prices[i] - prices[i - 1]) {
+    //   ans = ans + Math.max(prices[i] - prices[i - 1], 0)
+    // }
+    ans = ans + Math.max(prices[i] - prices[i - 1], 0)
+  }
+  return ans
+};
