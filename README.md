@@ -157,3 +157,7 @@
 * [跳跃游戏 II](https://leetcode-cn.com/problems/jump-game-ii/)
 #### 动态规划
 * [零钱兑换](https://leetcode-cn.com/problems/coin-change/)
+* [不同路径 II](https://leetcode-cn.com/problems/unique-paths-ii/)
+* [最长公共子序列](https://leetcode-cn.com/submissions/detail/252251924/)
+* [最长递增子序列](https://leetcode-cn.com/problems/longest-increasing-subsequence/)
+* [最长递增子序列的个数](https://leetcode-cn.com/problems/number-of-longest-increasing-subsequence/)
