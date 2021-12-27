@@ -188,3 +188,46 @@ var findNumberOfLIS = function (nums) {
   }
   return res
 };
+
+/**
+ * LeetCode-53. 最大子数组和
+ */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubArray = function (nums) {
+  // dp: 核心思想看之前的元素是否大于0
+  for (let i = 1; i < nums.length; i++) {
+    if (nums[i - 1] > 0) {
+      nums[i] = nums[i] + nums[i - 1]
+    }
+  }
+  return Math.max(...nums)
+};
+
+/**
+ * LeetCode-152. 乘积最大子数组
+ */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxProduct = function (nums) {
+  // dp
+  const fmax = []
+  const fmin = []
+  fmax[0] = nums[0]
+  fmin[0] = nums[0]
+  for (let i = 1; i < nums.length; i++) {
+    fmax[i] = Math.max(
+      Math.max(fmax[i - 1] * nums[i], fmin[i - 1] * nums[i]),
+      nums[i]
+    )
+    fmin[i] = Math.min(
+      Math.min(fmax[i - 1] * nums[i], fmin[i - 1] * nums[i]),
+      nums[i]
+    )
+  }
+  return Math.max(...fmax)
+};
