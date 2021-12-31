@@ -30,7 +30,7 @@ var maxProfit = function (prices) {
 };
 
 /**
- * LeetCode-121. 买卖股票的最佳时机
+ * LeetCode-122. 买卖股票的最佳时机 II
  */
 /**
  * @param {number[]} prices
@@ -62,3 +62,19 @@ var maxProfit = function (prices) {
   }
   return Math.max(buy[i - 1], sell[i - 1]);
 }
+
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var rob = function (nums) {
+  const len = nums.length;
+  if (len == 0) return 0;
+  const dp = new Array(len + 1);
+  dp[0] = 0;
+  dp[1] = nums[0];
+  for (let i = 2; i <= len; i++) {
+    dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i - 1]);
+  }
+  return dp[len];
+};
