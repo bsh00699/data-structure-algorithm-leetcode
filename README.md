@@ -170,3 +170,4 @@
 * [买卖股票的最佳时机](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock/)
 * [买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)
 * [打家劫舍](https://leetcode-cn.com/problems/house-robber/)
+* [完全平方数](https://leetcode-cn.com/problems/perfect-squares/submissions/)
