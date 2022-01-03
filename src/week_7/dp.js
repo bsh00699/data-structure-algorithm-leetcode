@@ -166,6 +166,74 @@ var maxProfit = function (k, prices) {
 };
 
 /**
+ * LeetCode-714. 买卖股票的最佳时机含手续费
+ */
+/**
+ * @param {number[]} prices
+ * @param {number} fee
+ * @return {number}
+ */
+var maxProfit = function (prices, fee) {
+  // 条件：不限交易次数，和122题解一样
+  // 动态规划
+  const len = prices.length
+  // 1.因为要从下标1开始，所以我们初始化prices[0] = 0
+  prices.unshift(0)
+  // 2.定义初始化状态求 max => -infinity; 求 min => +infinity
+  const dp = new Array(len + 1).fill(0).map(() => new Array(2).fill(-Infinity))
+  dp[0][0] = 0
+  // 3.状态循环， j:当前持股状态 [0, 1]
+  for (let i = 1; i <= len; i++) {
+    // 状态转移方程
+    // 买入的是时候算一下 手续费即可
+    dp[i][1] = Math.max(dp[i][1], dp[i - 1][0] - prices[i] - fee)
+    // 卖出
+    dp[i][0] = Math.max(dp[i][0], dp[i - 1][1] + prices[i])
+    for (let j = 0; j < 2; j++) {
+      // 什么也不干
+      dp[i][j] = Math.max(dp[i][j], dp[i - 1][j])
+    }
+  }
+  return dp[len][0]
+};
+
+/**
+ * LeetCode-309. 最佳买卖股票时机含冷冻期
+ */
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+var maxProfit = function (prices) {
+  // 条件不限交易次数与122题解一样
+  // 动态规划
+  const len = prices.length
+  // 1.因为要从下标1开始，所以我们初始化prices[0] = 0
+  prices.unshift(0)
+  // 2.定义初始化状态求 max => -infinity; 求 min => +infinity
+  // 转3维数组
+  const dp = new Array(len + 1).fill(0).map(() => new Array(2).fill(0).map(() => {
+    return new Array(2).fill(-Infinity)
+  }))
+  dp[0][0][0] = 0
+  // 3.状态循环， j:当前持股状态 [0, 1]
+  for (let i = 1; i <= len; i++) {
+    for (let j = 0; j < 2; j++) {
+      for (let l = 0; l < 2; l++) {
+        // 状态转移方程
+        // 买入
+        dp[i][1][0] = Math.max(dp[i][1][0], dp[i - 1][0][0] - prices[i])
+        // 卖出 l: 0 => 1
+        dp[i][0][1] = Math.max(dp[i][0][1], dp[i - 1][1][0] + prices[i])
+        // 什么也不干l: 全部转化 => 0
+        dp[i][j][0] = Math.max(dp[i][j][0], dp[i - 1][j][1])
+      }
+    }
+  }
+  return Math.max(dp[len][0][0], dp[len][0][1])
+};
+
+/**
  * LeetCode-198. 打家劫舍
  */
 /**
