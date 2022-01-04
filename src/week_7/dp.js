@@ -240,6 +240,7 @@ var maxProfit = function (prices) {
  * @param {number[]} nums
  * @return {number}
  */
+// 法一
 var rob = function (nums) {
   const len = nums.length;
   if (len == 0) return 0;
@@ -250,6 +251,73 @@ var rob = function (nums) {
     dp[i] = Math.max(dp[i - 1], dp[i - 2] + nums[i - 1]);
   }
   return dp[len];
+};
+// 法二
+var rob = function (nums) {
+  const len = nums.length
+  // 两个点 1.偷到第几个房间 2.刚刚的房间偷还是没偷
+  // f[i, j]表示计划偷窃前i座房屋，第i座房屋的闯入情况为j (0-未闯入 1-闯入)时的最大收益
+  // 为了使下标从1开始，要在前面插入一个0元素
+  nums.unshift(0)
+  const f = new Array(len + 1).fill(0).map(() => new Array(2).fill(0))
+  f[0][0] = 0
+  // 循环状态
+  for (let i = 1; i <= len; i++) {
+    for (let j = 0; j < 2; j++) {
+      // f[i][0] 之前i-1状态最大值，偷不偷都可以
+      f[i][0] = Math.max(f[i - 1][0], f[i - 1][1])
+      // f[i][1] 偷过了，之前i-1 不能偷，在加上偷的金额nums[i]
+      f[i][1] = f[i - 1][0] + nums[i]
+    }
+  }
+  return Math.max(f[len][0], f[len][1])
+};
+
+/**
+ * LeetCode-213. 打家劫舍 II
+ */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var rob = function (nums) {
+  // 环形dp--两次dp
+  // 第一次 不偷1，偷n
+  // 初值: f[1, 0] = 0 f[1, 1] = -无穷 目标: max(f[n, 0], f[n, 1])
+  // 第二次 不偷n，偷1
+  // 初值: f[1, 0] = 0 f[1, 1]= nums[1], 目标 f[n, 0]
+  // copy 198 题解
+  const len = nums.length
+  if (len === 1) return nums[0]
+  // 两个点 1.偷到第几个房间 2.刚刚的房间偷还是没偷
+  // f[i, j]表示计划偷窃前i座房屋，第i座房屋的闯入情况为j (0-未闯入 1-闯入)时的最大收益
+  // 为了使下标从1开始，要在前面插入一个0元素
+  nums.unshift(0)
+  const f = new Array(len + 1).fill(0).map(() => new Array(2).fill(0))
+  // 不偷1,偷n
+  f[1][0] = 0
+  // 循环状态
+  for (let i = 2; i <= len; i++) {
+    for (let j = 0; j < 2; j++) {
+      // f[i][0] 之前i-1状态最大值，偷不偷都可以
+      f[i][0] = Math.max(f[i - 1][0], f[i - 1][1])
+      // f[i][1] 偷过了，之前i-1 不能偷，在加上偷的金额nums[i]
+      f[i][1] = f[i - 1][0] + nums[i]
+    }
+  }
+  const ans = Math.max(f[len][0], f[len][1])
+  // 不偷n 偷1
+  f[1][0] = 0
+  f[1][1] = nums[1]
+  for (let i = 2; i <= len; i++) {
+    for (let j = 0; j < 2; j++) {
+      // f[i][0] 之前i-1状态最大值，偷不偷都可以
+      f[i][0] = Math.max(f[i - 1][0], f[i - 1][1])
+      // f[i][1] 偷过了，之前i-1 不能偷，在加上偷的金额nums[i]
+      f[i][1] = f[i - 1][0] + nums[i]
+    }
+  }
+  return Math.max(ans, f[len][0])
 };
 
 /**
