@@ -321,6 +321,45 @@ var rob = function (nums) {
 };
 
 /**
+ * LeetCode-72. 编辑距离
+ */
+/**
+ * @param {string} word1
+ * @param {string} word2
+ * @return {number}
+ */
+var minDistance = function (word1, word2) {
+  // f[i][j]表示word[1...i]与word2[1...j]的编辑距离
+  /**
+  插入: 先把前i个字符变成和前j-1个字符一样 f[i][j] = f[i][j-1] + 1
+       比如 ea 变 ebc，ea先变eb, 在插入c
+  删除: 把第i个字符删除，然后前 i-1 个字符和j个一样 f[i][j] = f[i-1][j] + 1
+  替换: f[i][j] = f[i-1][j-1] + eq
+       若word1[i]==word2[j] eq=0 否则 eq=1
+  初始值 f[i][0] = i f[0][j] = j
+  目标   f[n][m]
+   */
+  const n = word1.length
+  const m = word2.length
+  word1 = ' ' + word1
+  word2 = ' ' + word2
+  const f = new Array(n + 1).fill(0).map(() => {
+    return new Array(m + 1).fill(Infinity)
+  })
+  for (let i = 0; i <= n; i++) f[i][0] = i
+  for (let j = 0; j <= m; j++) f[0][j] = j
+  for (let i = 1; i <= n; i++) {
+    for (let j = 1; j <= m; j++) {
+      f[i][j] = Math.min(
+        Math.min(f[i][j - 1] + 1, f[i - 1][j] + 1),
+        f[i - 1][j - 1] + (word1[i] !== word2[j])
+      )
+    }
+  }
+  return f[n][m]
+};
+
+/**
  * LeetCode-279. 完全平方数
  */
 /**
