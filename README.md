@@ -181,3 +181,8 @@
 
 * [完全平方数](https://leetcode-cn.com/problems/perfect-squares/submissions/)
 * [跳跃游戏](https://leetcode-cn.com/problems/jump-game/)
+
+## week_8
+### 字典树、并集、图论算法
+#### 字典树
+* [实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)
