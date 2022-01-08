@@ -186,3 +186,6 @@
 ### 字典树、并集、图论算法
 #### 字典树
 * [实现 Trie (前缀树)](https://leetcode-cn.com/problems/implement-trie-prefix-tree/)
+
+#### 并集
+* [省份数量](https://leetcode-cn.com/problems/number-of-provinces/)
