@@ -34,3 +34,4 @@ var myAtoi = function (s) {
     }
     return sign * val
 };
+test
