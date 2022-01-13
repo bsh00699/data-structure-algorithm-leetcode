@@ -41,7 +41,7 @@ var myAtoi = function (s) {
  * @return {number}
  */
 var strStr = function (haystack, needle) {
-    // 
+    // Rabin-Karp 字符串哈希算法
     // b = 131 p = Math.pow(10, 9) + 7
     const b = 131
     const p = 1e9 + 7
