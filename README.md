@@ -196,3 +196,5 @@
 ## week_9
 #### 字符串处理
 * [字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)
+* [实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
+* [验证回文串](https://leetcode-cn.com/problems/valid-palindrome/)
