@@ -198,3 +198,5 @@
 * [字符串转换整数 (atoi)](https://leetcode-cn.com/problems/string-to-integer-atoi/)
 * [实现 strStr()](https://leetcode-cn.com/problems/implement-strstr/)
 * [验证回文串](https://leetcode-cn.com/problems/valid-palindrome/)
+* [验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii/)
+* [最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)

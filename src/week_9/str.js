@@ -78,7 +78,7 @@ var strStr = function (haystack, needle) {
 /**
  * LeetCode-125. 验证回文串
  */
-/**
+/**
  * @param {string} s
  * @return {boolean}
  */
@@ -99,4 +99,77 @@ var isPalindrome = function (s) {
     j--;
   }
   return true;
+};
+
+/**
+ * LeetCode-680. 验证回文字符串 Ⅱ
+ */
+/**
+* @param {string} s
+* @return {boolean}
+*/
+var validPalindrome = function (s) {
+  return check(s, 0, s.length - 1, 1)
+};
+const check = (s, l, r, times) => {
+  while (l < r) {
+    if (s[l] !== s[r]) {
+      return times > 0 && (
+        check(s, l + 1, r, 0) || check(s, l, r - 1, 0)
+      )
+    }
+    l++
+    r--
+  }
+  return true
+}
+
+/**
+ * LeetCode-5. 最长回文子串
+ */
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function (s) {
+  // 以回文串某个字符为中心，然后向两边扩展
+  const len = s.length
+  let ansLen = 0
+  let ansStart = 0
+  // 1. 奇回文串
+  for (let centre = 0; centre < len; centre++) {
+    let l = centre - 1
+    let r = centre + 1
+    while (l >= 0 && r < len && s[l] === s[r]) {
+      l--
+      r++
+    }
+    // 判断最长子串
+    // [l+1, r-1]是以centre为中心的最长字串
+    // maxLen = r-1 - (l+1) + 1 =  r-l-1
+    let maxLen = r - l - 1
+    if (maxLen > ansLen) {
+      ansLen = maxLen
+      ansStart = l + 1
+    }
+  }
+
+  // 2. 偶回文串
+  for (let centre = 1; centre < len; centre++) {
+    let l = centre - 1
+    let r = centre
+    while (l >= 0 && r < len && s[l] === s[r]) {
+      l--
+      r++
+    }
+    // 判断最长子串
+    // [l+1, r-1]是以centre为中心的最长字串
+    // maxLen = r-1 - (l+1) + 1 =  r-l-1
+    let maxLen = r - l - 1
+    if (maxLen > ansLen) {
+      ansLen = maxLen
+      ansStart = l + 1
+    }
+  }
+  return s.substr(ansStart, ansLen)
 };
