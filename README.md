@@ -200,3 +200,5 @@
 * [验证回文串](https://leetcode-cn.com/problems/valid-palindrome/)
 * [验证回文字符串 Ⅱ](https://leetcode-cn.com/problems/valid-palindrome-ii/)
 * [最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
+#### 搜索剪枝
+* [括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
