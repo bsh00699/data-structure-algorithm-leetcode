@@ -87,3 +87,143 @@ var generateParenthesis = function (n) {
   return ans
 };
 
+// 数独
+/**
+ * LeetCode-36. 有效的数独
+ */
+/**
+ * @param {character[][]} board
+ * @return {boolean}
+ */
+var isValidSudoku = function (board) {
+  /**
+  行 列 3x3矩阵，分别用3个Set() 集合表示
+  枚举每个元素，判断在集合中是否存在
+   */
+  const rowMap = new Map()
+  const colMap = new Map()
+  const boxMap = new Map()
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      const digit = board[i][j]
+      if (digit === '.') continue
+      // 行
+      if (!rowMap.has(i)) {
+        rowMap.set(i, new Set([digit]))
+      } else {
+        const rowSet = rowMap.get(i)
+        if (rowSet.has(digit)) return false
+        rowSet.add(digit)
+        // 更新当前行 set 集合
+        rowMap.set(i, rowSet)
+      }
+      // 列
+      if (!colMap.has(j)) {
+        colMap.set(j, new Set([digit]))
+      } else {
+        const colSet = colMap.get(j)
+        if (colSet.has(digit)) return false
+        colSet.add(digit)
+        colMap.set(j, colSet)
+      }
+      // 3x3矩阵坐标
+      // 二维降一维 (x, y) => x*row + y
+      let k = Math.floor(i / 3) * 3 + Math.floor(j / 3)
+      if (!boxMap.has(k)) {
+        boxMap.set(k, new Set([digit]))
+      } else {
+        const boxSet = boxMap.get(k)
+        if (boxSet.has(digit)) return false
+        boxSet.add(digit)
+        // 更新当前行 set 集合
+        boxMap.set(k, boxSet)
+      }
+    }
+  }
+  return true
+};
+
+/**
+ * LeetCode-37. 解数独
+ */
+/**
+ * @param {character[][]} board
+ * @return {void} Do not return anything, modify board in-place instead.
+ */
+var isValidSudoku = function (board) {
+  /**
+  行 列 3x3矩阵，分别用3个Set() 集合表示
+  枚举每个元素，判断在集合中是否存在
+   */
+  const rowMap = new Map()
+  const colMap = new Map()
+  const boxMap = new Map()
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      const digit = board[i][j]
+      if (digit === '.') continue
+      // 行
+      if (!rowMap.has(i)) {
+        rowMap.set(i, new Set([digit]))
+      } else {
+        const rowSet = rowMap.get(i)
+        if (rowSet.has(digit)) return false
+        rowSet.add(digit)
+        // 更新当前行 set 集合
+        rowMap.set(i, rowSet)
+      }
+      // 列
+      if (!colMap.has(j)) {
+        colMap.set(j, new Set([digit]))
+      } else {
+        const colSet = colMap.get(j)
+        if (colSet.has(digit)) return false
+        colSet.add(digit)
+        // 更新当前行 set 集合
+        colMap.set(j, colSet)
+      }
+      // 3x3矩阵坐标
+      // 二维降一维 (x, y) => x*列数 + y
+      let k = Math.floor(i / 3) * 3 + Math.floor(j / 3)
+      if (!boxMap.has(k)) {
+        boxMap.set(k, new Set([digit]))
+      } else {
+        const boxSet = boxMap.get(k)
+        if (boxSet.has(digit)) return false
+        boxSet.add(digit)
+        // 更新当前行 set 集合
+        boxMap.set(k, boxSet)
+      }
+    }
+  }
+  return true
+};
+const findFirstEmpty = (board) => {
+  for (let i = 0; i < 9; i++) {
+    for (let j = 0; j < 9; j++) {
+      const digit = board[i][j]
+      if (digit === '.') return [i, j]
+    }
+  }
+  return [-1, -1]
+}
+const dfs = (board) => {
+  // 有效判断
+  if (!isValidSudoku(board)) return false
+  // 找第一个空位置，填数字
+  const [x, y] = findFirstEmpty(board)
+  if (x === -1) return true
+  for (let i = 1; i <= 9; i++) {
+    board[x][y] = `${i}`
+    // 检查是否有效数独
+    if (dfs(board)) return true
+    // 记得回溯还原现场
+    board[x][y] = '.'
+  }
+  return false
+}
+var solveSudoku = function (board) {
+  // 依赖36题做判断，做剪枝处理
+  // 蛮力搜索 每次找【第一个空位置】枚举0-9填入，判断有效递归
+  dfs(board)
+};

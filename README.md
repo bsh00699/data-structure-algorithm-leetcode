@@ -202,3 +202,7 @@
 * [最长回文子串](https://leetcode-cn.com/problems/longest-palindromic-substring/)
 #### 搜索剪枝
 * [括号生成](https://leetcode-cn.com/problems/generate-parentheses/)
+
+#### 数独
+* [有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
+* [解数独](https://leetcode-cn.com/problems/sudoku-solver/)
