@@ -206,3 +206,7 @@
 #### 数独
 * [有效的数独](https://leetcode-cn.com/problems/valid-sudoku/)
 * [解数独](https://leetcode-cn.com/problems/sudoku-solver/)
+## week_10
+#### 位运算
+* [位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)
+* [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
