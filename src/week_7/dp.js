@@ -399,3 +399,37 @@ var numSquares = function (n) {
   return f[n];
 };
 
+/**
+ * LeetCode-918. 环形子数组的最大和
+ */
+/**
+ * @param {number[]} nums
+ * @return {number}
+ */
+var maxSubarraySumCircular = function (nums) {
+  // 线性2倍 + 滑动窗口最大值
+  let len = nums.length
+  nums.unshift(0)
+  const ss = new Array(2 * len + 1).fill(0)
+  // 前i项和
+  for (let i = 1; i <= len; i++) {
+    ss[i] = ss[i - 1] + nums[i]
+  }
+  for (let i = len + 1; i <= 2 * len; i++) {
+    ss[i] = ss[i - 1] + nums[i - len]
+  }
+  // 转化为滑动窗口最大值
+  const que = []
+  let ans = -1e9
+  for (let i = 1; i <= 2 * len; i++) {
+    while (que.length && que[0] < i - len) que.shift()
+    if (que.length) {
+      ans = Math.max(ans, ss[i] - ss[que[0]])
+    }
+    while (que.length && ss[que[que.length - 1]] >= ss[i]) {
+      que.pop()
+    }
+    que.push(i)
+  }
+  return ans
+};

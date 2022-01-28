@@ -182,6 +182,8 @@
 * [完全平方数](https://leetcode-cn.com/problems/perfect-squares/submissions/)
 * [跳跃游戏](https://leetcode-cn.com/problems/jump-game/)
 
+* [环形子数组的最大和](https://leetcode-cn.com/problems/maximum-sum-circular-subarray/)
+
 ## week_8
 ### 字典树、并集、图论算法
 #### 字典树
