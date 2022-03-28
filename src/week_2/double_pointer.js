@@ -26,6 +26,44 @@ var twoSum = function (numbers, target) {
 };
 
 /**
+ * LeetCode-15. 三数之和
+ * 方法：排序然后利用双指针
+ */
+/**
+ * @param {number[]} nums
+ * @return {number[][]}
+ */
+
+const twoSum = (nums, start, target) => {
+  const ans = []
+  // 双指针
+  let j = nums.length - 1
+  for (let i = start; i < nums.length; i++) {
+    if (i > start && nums[i] === nums[i - 1]) continue
+    // 往中间靠
+    while (i < j && nums[i] + nums[j] > target) j--
+    if (i < j && nums[i] + nums[j] === target) {
+      ans.push([nums[i], nums[j]])
+    }
+  }
+  return ans
+}
+
+var threeSum = function (nums) {
+  const ans = []
+  // 排序
+  nums.sort((a, b) => a - b)
+  for (let i = 0; i < nums.length; i++) {
+    if (i > 0 && nums[i] === nums[i - 1]) continue // 去重
+    const twoSumRes = twoSum(nums, i + 1, -nums[i])
+    for (const [x, y] of twoSumRes) {
+      ans.push([nums[i], x, y])
+    }
+  }
+  return ans
+};
+
+/**
  * LeetCode-11. 盛最多水的容器
  */
 /**

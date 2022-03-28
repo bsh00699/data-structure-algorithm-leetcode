@@ -76,6 +76,7 @@
 
 #### 双指针扫描
 * [两数之和 II - 输入有序数组](https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/)
+* [三数之和](https://leetcode-cn.com/problems/3sum/)
 * [盛最多水的容器](https://leetcode-cn.com/problems/container-with-most-water/)
 * [数组的度](https://leetcode-cn.com/problems/degree-of-an-array/)
 
