@@ -16,6 +16,7 @@
 * [删除有序数组中的重复项](https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/)
 * [移动零](https://leetcode-cn.com/problems/move-zeroes/)
 * [加一](https://leetcode-cn.com/problems/plus-one/)
+* [矩阵置零](https://leetcode-cn.com/problems/set-matrix-zeroes/)
 
 #### 设计变长数组
 ##### 方案

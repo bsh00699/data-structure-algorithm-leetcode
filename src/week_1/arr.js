@@ -84,3 +84,33 @@ var maxSlidingWindow = function (nums, k) {
   }
   return res
 };
+
+
+// LeetCode-73 矩阵置零
+// 方法：我们可以用两个标记数组分别记录每一行和每一列是否有零出现。
+// 具体地，我们首先遍历该数组一次，如果某个元素为 00，那么就将该元素所在的行和列所对应标记数组的位置置为 true。
+// 最后我们再次遍历该数组，用标记数组更新原数组即可。
+/**
+ * @param {number[][]} arr
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var setZeroes = function (arr) {
+  const row = new Array(arr.length).fill(false)
+  const col = new Array(arr[0].length).fill(false)
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[0].length; j++) {
+      if (arr[i][j] === 0) {
+        row[i] = true
+        col[j] = true
+      }
+    }
+  }
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[0].length; j++) {
+      if (row[i] || col[j]) {
+        arr[i][j] = 0
+      }
+    }
+  }
+  return arr
+};
