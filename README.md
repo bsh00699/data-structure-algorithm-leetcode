@@ -214,3 +214,4 @@
 #### 位运算
 * [位1的个数](https://leetcode-cn.com/problems/number-of-1-bits/)
 * [Pow(x, n)](https://leetcode-cn.com/problems/powx-n/)
+* [只出现一次的数字](https://leetcode-cn.com/problems/single-number/)
