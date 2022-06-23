@@ -115,6 +115,9 @@
 #### BFS(广度优先搜索)
 * [最小基因变化](https://leetcode-cn.com/problems/minimum-genetic-mutation/)
 * [岛屿数量](https://leetcode-cn.com/problems/number-of-islands/)
+* [课程表](https://leetcode.cn/problems/course-schedule/)
+* [课程表2](https://leetcode.cn/problems/course-schedule-ii/)
+* [矩阵中最长递增路径](https://leetcode.cn/problems/longest-increasing-path-in-a-matrix/)
 
 #### 二叉堆
 * [合并K个升序链表](https://leetcode-cn.com/problems/merge-k-sorted-lists/)
